@@ -1,3 +1,4 @@
+import 'package:f_currency_converter_template/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'one_key.dart';
 
@@ -28,13 +29,18 @@ class _KeyPadState extends State<KeyPad> {
   // función que cambia el estado del widget (_currency1, _currency2)
   void _onPressed(int k) {
     setState(() {
-      if (k == 10) {
-        // TODO
-        // cuando k es 10 se debe volver el estado a cero
+      // TODO
+      // cuando k es 10 se debe volver el estado a cero
+      // si sobrepasa la interfaz reset
+      if (k == 10 || _currency1.toRadixString(10).length >= 13) {
+        _currency1 = 0;
+        _currency2 = 0;
       } else {
         // TODO
         // _currency1 debe cambiar con el keypad
         // _currency2 debe cambiar de acuerdo con _currency1 y la tasa de cambio
+        _currency1 = 10*_currency1 + k;
+        _currency2 = _currency1*widget.rate;
       }
     });
   }
@@ -80,7 +86,7 @@ class _KeyPadState extends State<KeyPad> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text('se muestra textCurrency1'),
+                child: Text(widget.textCurrency2),
               ),
               Expanded(
                 child: Container(),
@@ -103,9 +109,9 @@ class _KeyPadState extends State<KeyPad> {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  // TODO
-                  // en cada OneKey se manda el número y _onPressed para callback
-                  const Text('OneKey para 7, 8 y 9'),
+                  OneKey(number: 7, callback : _onPressed),
+                  OneKey(number: 8, callback : _onPressed),
+                  OneKey(number: 9, callback : _onPressed)
                 ]),
           ),
           Expanded(
@@ -113,9 +119,9 @@ class _KeyPadState extends State<KeyPad> {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  // TODO
-                  // en cada OneKey se manda el número y _onPressed para callback
-                  const Text('OneKey para 6, 5 y 4'),
+                  OneKey(number: 6, callback : _onPressed),
+                  OneKey(number: 5, callback : _onPressed),
+                  OneKey(number: 4, callback : _onPressed)
                 ]),
           ),
           Expanded(
@@ -123,9 +129,9 @@ class _KeyPadState extends State<KeyPad> {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  // TODO
-                  // en cada OneKey se manda el número y _onPressed para callback
-                  const Text('OneKey para 1, 2 y 3'),
+                  OneKey(number: 1, callback : _onPressed),
+                  OneKey(number: 2, callback : _onPressed),
+                  OneKey(number: 3, callback : _onPressed)
                 ]),
           ),
           Expanded(
@@ -148,9 +154,7 @@ class _KeyPadState extends State<KeyPad> {
                           ))),
                 ),
               ),
-              // TODO
-              // en cada OneKey se manda el número y _onPressed para callback
-              const Text('OneKey para 0'),
+              OneKey(number: 0, callback : _onPressed)
             ]),
           )
         ]);

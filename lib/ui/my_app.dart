@@ -15,6 +15,6 @@ class MyApp extends StatelessWidget {
         ),
         // TODO
         // ConverterPage es el widget que presenta la página de la aplicación
-        home: const Text('aquí colocamos ConverterPage'));
+        home: const ConverterPage());
   }
 }
