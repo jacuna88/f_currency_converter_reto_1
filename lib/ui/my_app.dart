@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Currency converter',
         theme: ThemeData(
-          primarySwatch: Colors.grey,
+          primarySwatch: Colors.blue,
         ),
         // TODO
         // ConverterPage es el widget que presenta la página de la aplicación
