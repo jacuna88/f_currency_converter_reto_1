@@ -9,4 +9,4 @@ El siguiente es un demo de la interfaz a la que se debe llegar (funcionalidades 
 <img src="https://user-images.githubusercontent.com/4458129/173209201-ecf02c3e-8571-42a0-92d5-5a9111f5b3b0.gif" width="300" />
 
 Solución:
-https://uninorte-my.sharepoint.com/:v:/g/personal/ypineros_uninorte_edu_co/EZSxvaLgv3FOikj0RFvk9qIBnd3cp4ybb9cd5K0_GsBlqg
+https://bit.ly/3UcwEPr
