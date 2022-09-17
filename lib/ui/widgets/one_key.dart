@@ -18,6 +18,7 @@ class OneKey extends StatelessWidget {
             key: Key(number.toString()),
             color: Theme.of(context).primaryColor,
             padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+            shape: StadiumBorder(),
             onPressed: () {
               callback(number);
             },
