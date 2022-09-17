@@ -144,6 +144,7 @@ class _KeyPadState extends State<KeyPad> {
                       key: const Key("reset"),
                       padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
                       color: Theme.of(context).colorScheme.secondary,
+                      shape: StadiumBorder(),
                       onPressed: () {
                         _onPressed(10);
                       },
