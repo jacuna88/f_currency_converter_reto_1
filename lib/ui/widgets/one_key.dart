@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:soundpool/soundpool.dart';
 
 class OneKey extends StatelessWidget {
   const OneKey({Key? key, required this.number, required this.callback})
@@ -20,6 +22,7 @@ class OneKey extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
             shape: StadiumBorder(),
             onPressed: () {
+              _sonidoboton();
               callback(number);
             },
             child: Text(number.toString(),
@@ -29,5 +32,15 @@ class OneKey extends StatelessWidget {
                 ))),
       ),
     );
+  }
+
+  Future<void> _sonidoboton() async{
+    Soundpool pool = Soundpool(streamType: StreamType.notification);
+    int soundId = await rootBundle
+        .load("lib/ui/widgets/boton.mp3")
+        .then((ByteData soundData) {
+      return pool.load(soundData);
+    });
+    int streamId = await pool.play(soundId);
   }
 }
